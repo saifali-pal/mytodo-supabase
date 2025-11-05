@@ -11,7 +11,7 @@ export default function Home() {
       <Card className="w-full max-w-md p-4">
         <CardContent>
           <h1 className="text-2xl font-bold mb-4 text-center">
-            Go Beyond the limit
+            Go Beyond the limit and work hard
           </h1>
           <TodoFilters />
           <TodoList />
