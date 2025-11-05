@@ -9,7 +9,7 @@ export default function SignupPage() {
     <div className="flex justify-center items-center min-h-[80vh]">
       <Card className="w-full max-w-md p-6">
         <CardContent className="pt-6">
-          <Suspense fallback={<div>Loading form...</div>}>
+          <Suspense fallback={<div>Loading form..</div>}>
             <SignupForm />
           </Suspense>
         </CardContent>
