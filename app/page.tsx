@@ -10,7 +10,9 @@ export default function Home() {
     <ProtectedRoute>
       <Card className="w-full max-w-md p-4">
         <CardContent>
-          <h1 className="text-2xl font-bold mb-4 text-center">All Tasks</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center">
+            Multiple Tasks
+          </h1>
           <TodoFilters />
           <TodoList />
         </CardContent>
