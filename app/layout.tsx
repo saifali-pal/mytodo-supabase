@@ -9,6 +9,7 @@ import { Provider as JotaiProvider } from "jotai";
 import { AuthProvider } from "@/context/AuthContext";
 import Navigation from "@/components/Navigation";
 import { queryClient } from "@/lib/queryClient";
+import { ThemeProvider } from "@/components/themeProvider";
 
 export default function RootLayout({
   children,
@@ -16,17 +17,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-50 min-h-screen">
-        <QueryClientProvider client={queryClient}>
-          <JotaiProvider>
-            <AuthProvider>
-              <Navigation />
-              <main className="flex justify-center p-6">{children}</main>
-            </AuthProvider>
-            <ReactQueryDevtools initialIsOpen={false} />
-          </JotaiProvider>
-        </QueryClientProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className=" min-h-screen">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <QueryClientProvider client={queryClient}>
+            <JotaiProvider>
+              <AuthProvider>
+                <Navigation />
+                <main className="flex justify-center p-6">{children}</main>
+              </AuthProvider>
+              <ReactQueryDevtools initialIsOpen={false} />
+            </JotaiProvider>
+          </QueryClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

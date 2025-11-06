@@ -21,7 +21,7 @@ export default function TodoCard({ todo }: { todo: Todo }) {
   };
 
   return (
-    <div className="flex justify-between items-center p-3 border rounded-lg shadow-sm bg-white">
+    <div className="flex justify-between items-center p-3 border rounded-lg shadow-sm bg-card">
       <div className="flex items-center gap-2 flex-1 min-w-0">
         <Checkbox
           checked={todo.completed}
@@ -30,7 +30,7 @@ export default function TodoCard({ todo }: { todo: Todo }) {
         />
         <span
           className={`${
-            todo.completed ? "line-through text-gray-400" : ""
+            todo.completed ? "line-through text-muted-foreground" : ""
           } break-words whitespace-normal overflow-hidden`}
         >
           {todo.text}

@@ -38,17 +38,17 @@ export default function TodoList() {
   }, [todos, filter, search]);
 
   if (isLoading) {
-    return <p className="text-center text-gray-500 mt-4">Loading tasks...</p>;
+    return <p className="text-center text-muted-foreground mt-4">Loading tasks...</p>;
   }
 
   if (error) {
     return (
-      <p className="text-center text-red-500 mt-4">Error loading tasks.</p>
+      <p className="text-center text-destructive mt-4">Error loading tasks.</p>
     );
   }
 
   if (!filteredTodos.length) {
-    return <p className="text-center text-gray-500 mt-4">No tasks found.</p>;
+    return <p className="text-center text-muted-foreground mt-4">No tasks found.</p>;
   }
 
   return (

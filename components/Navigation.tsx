@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import { usePathname, useRouter } from "next/navigation";
+import { ModeToggle } from "@/components/ModeToggle";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -28,7 +29,7 @@ export default function Navigation() {
 
   if (loading) {
     return (
-      <nav className="flex justify-center gap-4 p-4 shadow-sm bg-white">
+      <nav className="flex justify-center gap-4 p-4 shadow-sm bg-background">
         <div className="animate-pulse">Loading...</div>
       </nav>
     );
@@ -39,15 +40,16 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="flex justify-between items-center p-4 shadow-sm bg-white">
+    <nav className="flex justify-between items-center p-5 shadow-sm bg-background ">
+      <ModeToggle />
       <div className="flex gap-4">
         <Link href="/">
           <Button
             variant={pathname === "/" ? "default" : "outline"}
             className={
               pathname === "/"
-                ? "bg-black text-white hover:bg-black"
-                : "hover:bg-gray-100"
+                ? "bg-primary text-primary-foreground hover:bg-primary"
+                : "hover:bg-accent hover:text-accent-foreground"
             }
           >
             All Tasks
@@ -59,8 +61,8 @@ export default function Navigation() {
             variant={pathname === "/add" ? "default" : "outline"}
             className={
               pathname === "/add"
-                ? "bg-black text-white hover:bg-black"
-                : "hover:bg-gray-100"
+                ? "bg-primary text-primary-foreground hover:bg-primary"
+                : "hover:bg-accent hover:text-accent-foreground"
             }
           >
             Add Task
@@ -69,7 +71,7 @@ export default function Navigation() {
       </div>
 
       <div className="flex items-center gap-4">
-        <span className="text-sm text-gray-600">
+        <span className="text-sm text-muted-foreground">
           Welcome, {user?.email?.split("@")[0] || "Guest"}
         </span>
         <Button variant="outline" onClick={handleSignOut}>

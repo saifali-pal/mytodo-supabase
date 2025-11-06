@@ -41,7 +41,7 @@ export default function TodoItem({
   };
 
   return (
-    <div className="flex justify-between items-center p-2 border rounded-lg shadow-sm bg-white">
+    <div className="flex justify-between items-center p-2 border rounded-lg shadow-sm bg-">
       <div className="flex items-center gap-2 w-full">
         <Checkbox checked={completed} onCheckedChange={() => toggleTodo(id)} />
         {isEditing ? (
@@ -62,7 +62,7 @@ export default function TodoItem({
         ) : (
           <span
             className={`flex-1 ${
-              completed ? "line-through text-gray-400" : ""
+              completed ? "line-through text-muted-foreground" : ""
             }`}
           >
             {text}
